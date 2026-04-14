@@ -2,7 +2,7 @@
 Jaxon Finkelstein
 4/14/26
 CIS 1202 K01
-V1.0
+V1.1
 Exceptions
 */
 
@@ -50,14 +50,13 @@ int main() {
 }
 
 char character(char start, int offset) {
-	string invalidCharacterException = "invalidCharacterException";
-	string invalidRangeException = "invalidRangeException";
-
 	if (!isalpha(start)) {
-		throw invalidCharacterException;
+		string exceptionString = "invalidCharacterException";
+		throw exceptionString;
 	}
-	else if (!isalpha(start + offset)) {
-		throw invalidRangeException;
+	else if ((!isalpha(start + offset)) || (isupper(start) && islower(start + offset)) || (islower(start) && isupper(start + offset))) {
+		string exceptionString = "invalidRangeException";
+		throw exceptionString;
 	}
 	else {
 		return start + offset;
